@@ -50,4 +50,11 @@ function login(string $user, string $password): bool
         
 ### 4. Template ###
 
+1. Membuat file bernama ***template.blade.php*** pada folder **resources/views**, kode template bisa lihat [disini](https://github.com/binsarkiel/laravel-todolist/blob/master/resources/views/template.blade.php).
 
+2. Preview template dengan membuat *routing* baru pada file **web.php**.
+    ```php
+    Route::view('/template', 'template');
+    ```
+
+3. Jalankan server dan buka <localhost:8000/template> untuk melihat hasilnya.
