@@ -38,14 +38,13 @@ Laravel Todolist<a name="TOP"></a>
 3. Membuat logic login di file implementation tersebut.
 ```php
 function login(string $user, string $password): bool
-    {
-        if (!isset($this->users[$user])) {
-        return false;
-    }
-
+{
+    if (!isset($this->users[$user])) {
+    return false;
+}
     $correctPassword = $this->users[$user];
     return $password == $correctPassword;
-    }
+}
 ```
         
 ### 4. Template ###
