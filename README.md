@@ -14,9 +14,18 @@ Laravel Todolist<a name="TOP"></a>
 
 2. Menambahkan file interface **UserService.php** pada folder **Services** untuk kontrak implementation.
 
+```php
+interface UserService
+{
+    function login (string $user, string $password): bool;
+}
+```
+
 3. Membuat folder baru **Impl** di **Services** sebagai wadah file class implementation.
 
 4. Menambahkan file class **UserServiceImpl.php** di dalam folder **Impl** untuk menulis implementation details beserta tahap-tahapan function.
+
+
 
 
 5. Dependency Injection di dalam **Providers** menggunakan syntax di terminal.
@@ -37,6 +46,10 @@ Laravel Todolist<a name="TOP"></a>
 
 3. Membuat logic login di file implementation tersebut.
 ```php
+private array $users = [
+    "binsarkiel" => "rahasia"
+];
+
 function login(string $user, string $password): bool
 {
     if (!isset($this->users[$user])) {
