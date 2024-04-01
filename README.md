@@ -25,24 +25,27 @@ Laravel Todolist<a name="TOP"></a>
 
 6. Meregistrasikan **UserServiceProvider.php** di ***config\app.php*** pada baris Application Service Providers.
 
-    * App\Providers\UserServiceProvider::class
+    * **App\Providers\UserServiceProvider::class**
 
 ### 3. Membuat Logic Login ###
 
-1. Membuat kontrak function login di ***app\Services\UserService.php** dengan *boolean*
+1. Membuat kontrak function login di ***app\Services\UserService.php*** dengan *boolean*
 
 2. Mengimplementasikan function tersebut di ***app\Services\Impl\UserServiceImpl.php*** serta menambahkan data user menggunakan method memory.
 
 3. Membuat logic login di file implementation tersebut.
+```php
+function login(string $user, string $password): bool
+    {
+        if (!isset($this->users[$user])) {
+        return false;
+    }
 
-        function login(string $user, string $password): bool
-        {
-            if (!isset($this->users[$user])) {
-            return false;
-        }
+    $correctPassword = $this->users[$user];
+    return $password == $correctPassword;
+    }
+```
+        
+### 4. Template ###
 
-        $correctPassword = $this->users[$user];
-        return $password == $correctPassword;
-        }
 
-### IV. Template ###
