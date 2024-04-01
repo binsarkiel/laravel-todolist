@@ -3,12 +3,12 @@ Laravel Todolist<a name="TOP"></a>
 
 - - - -
 
-### 1. Membuat Project Laravel ###
+### I. Membuat Project Laravel ###
 
 * *composer create-project laravel/laravel=9.1.5 laravel-todolist*
 
 
-### 2. Membuat User Service ###
+### II. Membuat User Service ###
 
 1. Membuat folder baru *Services* di ***app***.
 
@@ -21,8 +21,8 @@ Laravel Todolist<a name="TOP"></a>
 
 5. Dependency Injection di dalam ***Providers*** menggunakan syntax di terminal.
 
-* *php artisan make:provider UserServiceProvider.php
+    * *php artisan make:provider UserServiceProvider.php
 
 6. Meregistrasikan *UserServiceProvider.php* di ***config\app.php***.
 
-* *App\Providers\UserServiceProvider::class
+    * *App\Providers\UserServiceProvider::class
