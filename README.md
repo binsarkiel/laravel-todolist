@@ -56,4 +56,40 @@ function login(string $user, string $password): bool
     Route::view('/template', 'template');
     ```
 
-3. Jalankan server dan buka <localhost:8000/template> untuk melihat hasilnya.
+3. Jalankan server dan buka http://localhost:8000/template untuk melihat hasilnya.
+
+
+### 5. Membuat User Controller ###
+
+1. Untuk membuatnya, gunakan perintah berikut :
+
+   ```
+   php artisan make:controller UserController
+   ```
+
+2. Membuat public function untuk menampilkan halaman login, beserta aksi untuk melakukan login dan logout.
+   
+   ```php
+   public function login()
+   {
+    // ..
+   }
+   public function doLogin()
+   {
+    // ...
+   }
+   public function doLogout()
+   {
+    // ...
+   }
+   ```
+
+3. Setelah itu, tambahkan *routes* untuk **UserController.php** di dalam file **web.php** sebagai berikut : 
+
+   ```php
+   Route::controller(UserController::class)->group(function () {
+        Route::get('/login', 'login');
+        Route::post('/login', 'doLogin');
+        Route::post('/logout', 'doLogout');
+   });
+   ```
