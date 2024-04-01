@@ -152,6 +152,67 @@ function login(string $user, string $password): bool
     </form>
     ```
  
- ## 7. Membuat Login Action
+## 7. Membuat Login Action ##
 
-    ... to be continued
+1. Dependency Injection untuk **UserService.php** di file ***UserController.php*** lalu kita buat sebagai constructor.
+    ```php
+    use App\Services\UserService;
+
+    class UserController extends Controller
+    {
+        private UserService $userService;
+
+        public function __construct(UserService $userService)
+        {
+            $this->userService = $userService;
+        }
+
+        ...
+    }
+    ```
+
+
+1. Atur kembali `public function doLogin()` yang kita buat sebelumnya menjadi: 
+
+    ```php
+    public function doLogin(Request $request): Response | RedirectResponse
+    {
+        ...
+    }
+    ```
+
+2. Setelah itu, tambahkan kode di dalamnya untuk mengambil data input user & password dari halaman login.
+
+    ```php
+    $user = $request->input('user');
+    $password = $request->input('password');
+    ```
+
+3. Memvalidasi input jika user atau password kosong :
+    ```php
+    if (empty($user) || empty($password)) {
+        return response()->view('user.login', [
+            'title' => 'Login',
+            'error' => 'User or password is required!'
+        ]);
+    }
+    ```
+
+4. Lalu, tambahkan validasi input jika data login sesuai dan langsung redirect masuk ke halaman.
+    ```php
+    if($this->userService->login($user, $password)) {
+        $request->session()->put('user', $user);
+        return redirect('/');
+    }
+    ```
+
+5. Tambahkan juga validasi input jika user atau password salah sebagai berikut :
+    ```php
+    return response()->view('user.login', [
+        'title' => 'Login',
+        'error' => "User or password is incorrect!"
+    ]);
+    ```
+
+## 8. Membuat Logout Action
+    to be continued ...
