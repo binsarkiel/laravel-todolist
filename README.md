@@ -35,13 +35,14 @@ Laravel Todolist<a name="TOP"></a>
 
 3. Membuat logic login di file implementation tersebut.
 
-> function login(string $user, string $password): bool
-  {
-    if (!issert($this->users[$user])) {
-        return false;
-    }
-    $correctPassword = $this-users[$user];
-    return $password == $correctPassword;
-  } 
+Markup : function login(string $user, string $password): bool
+            {
+                if (!issert($this->users[$user])) {
+                return false;
+            }
+
+                $correctPassword = $this-users[$user];
+                return $password == $correctPassword;
+            } 
 
 ### IV. Template ###
