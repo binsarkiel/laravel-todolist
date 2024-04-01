@@ -21,8 +21,8 @@ Laravel Todolist<a name="TOP"></a>
 
 5. Dependency Injection di dalam ***Providers*** menggunakan syntax di terminal.
 
-    * *php artisan make:provider UserServiceProvider.php
+    * php artisan make:provider UserServiceProvider.php
 
 6. Meregistrasikan *UserServiceProvider.php* di ***config\app.php***.
 
-    * *App\Providers\UserServiceProvider::class
+    * App\Providers\UserServiceProvider::class
